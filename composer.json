@@ -4,12 +4,11 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.7",
-        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -74,6 +73,16 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
+        "prepare": [
+            "bin/console doctrine:database:drop --if-exists --force -n --env=local",
+            "bin/console doctrine:database:drop --if-exists --force -n --env=test",
+            "bin/console doctrine:database:create -n --env=local",
+            "bin/console doctrine:database:create -n --env=test",
+            "bin/console doctrine:m:m -n --env=local",
+            "bin/console doctrine:m:m -n --env=test",
+            "bin/console doctrine:fixtures:load -n",
+            "bin/console doctrine:fixtures:load -n --env=test"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
@@ -95,6 +104,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",

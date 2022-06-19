@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,6 +31,9 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
-        return $this->render('Admin/user/edit.html.twig', compact('user'));
+        $form = $this->createForm(UserType::class, $user);
+        return $this->render('Admin/user/edit.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

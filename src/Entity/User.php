@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -34,6 +35,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private string $password;
+
+    /**
+     * @var string
+     * @Assert\EqualTo(propertyPath="password", message="La confirmation ne correspond pas au mot de passe")
+     */
+    private string $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=200)
@@ -118,6 +125,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getConfirmPassword(): string
+    {
+        return $this->confirm_password;
+    }
+
+    /**
+     * @param string $confirm_password
+     */
+    public function setConfirmPassword(string $confirm_password): void
+    {
+        $this->confirm_password = $confirm_password;
+    }
+
+
 
     /**
      * Returning a salt is only needed, if you are not using a modern

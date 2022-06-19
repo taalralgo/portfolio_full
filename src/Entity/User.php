@@ -6,6 +6,8 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -32,8 +34,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le mot de passe ne peut pas etre vide")
      */
     private string $password;
+
+    /**
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Le mot de passe est different de la confirmation.")
+     */
+    private string $new_password;
+
+    /**
+     * @var string
+     * Assert\EqualTo(propertyPath="password", message="La confirmation ne correspond pas au mot de passe")
+     */
+    private string $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=200)
@@ -118,6 +132,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getNewPassword(): string
+    {
+        return $this->new_password;
+    }
+
+    /**
+     * @param string $new_password
+     */
+    public function setNewPassword(string $new_password): void
+    {
+        $this->new_password = $new_password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfirmPassword(): string
+    {
+        return $this->confirm_password;
+    }
+
+    /**
+     * @param string $confirm_password
+     */
+    public function setConfirmPassword(string $confirm_password): void
+    {
+        $this->confirm_password = $confirm_password;
+    }
+
+
 
     /**
      * Returning a salt is only needed, if you are not using a modern

@@ -1,0 +1,52 @@
+{% extends 'backend.html.twig' %}
+
+{% block breadcrump %}
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Users /</span> liste
+    </h4>
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <h5 class="card-header">Administrateur</h5>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>type</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.roles[0] }}</td>
+                            <td>{{ user.type }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                            data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ path('admin_user_edit', {id: user.id}) }}">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            Modifier
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

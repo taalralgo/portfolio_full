@@ -5,9 +5,11 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -29,9 +31,27 @@ class UserController extends AbstractController
     /**
      * @Route("/user/edit/{id}", name="admin_user_edit")
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $manager): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user)->handleRequest($request);
+        if ($request->isMethod('POST'))
+        {
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                /** @var User $editUser */
+                $editUser = $form->getData();
+                $user->setName($editUser->getName());
+                $user->setEmail($editUser->getEmail());
+                $user->setAbout($editUser->getAbout());
+                if (!empty($editUser->getNewPassword()))
+                {
+                    $user->setPassword($passwordHasher->hashPassword($editUser->getNewPassword()));
+                }
+                $manager->persist($user);
+                $manager->flush();
+                return $this->redirectToRoute('admin_user_index');
+            }
+        }
         return $this->render('Admin/user/edit.html.twig', [
             'form' => $form->createView()
         ]);

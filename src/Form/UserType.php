@@ -18,8 +18,14 @@ class UserType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
-            ->add('confirm_password', PasswordType::class)
+            ->add('new_password', PasswordType::class, [
+                'required' => false,
+                'empty_data' => ''
+            ])
+            ->add('confirm_password', PasswordType::class, [
+                'required' => false,
+                'empty_data' => ''
+            ])
             ->add('about', TextareaType::class)
         ;
     }

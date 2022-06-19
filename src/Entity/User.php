@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
@@ -33,12 +34,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Le mot de passe ne peut pas etre vide")
      */
     private string $password;
 
     /**
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Le mot de passe est different de la confirmation.")
+     */
+    private string $new_password;
+
+    /**
      * @var string
-     * @Assert\EqualTo(propertyPath="password", message="La confirmation ne correspond pas au mot de passe")
+     * Assert\EqualTo(propertyPath="password", message="La confirmation ne correspond pas au mot de passe")
      */
     private string $confirm_password;
 
@@ -124,6 +131,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNewPassword(): string
+    {
+        return $this->new_password;
+    }
+
+    /**
+     * @param string $new_password
+     */
+    public function setNewPassword(string $new_password): void
+    {
+        $this->new_password = $new_password;
     }
 
     /**

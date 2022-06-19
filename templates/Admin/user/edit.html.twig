@@ -11,7 +11,7 @@
             <small class="text-muted float-end">Les cahmps marqués avec <span class="text-danger">*</span> sont obligatoires</small>
         </div>
         <div class="card-body">
-            {{ include('Admin/user/_form.html.twig') }}
+            {{ include('Admin/user/_form.html.twig', {'btn_name': 'Modifier', 'btn_color': 'btn-warning'}) }}
         </div>
     </div>
 {% endblock %}

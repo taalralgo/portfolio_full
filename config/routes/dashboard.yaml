@@ -1,3 +1,0 @@
-index:
-    path: /admin/dashboard
-    controller: App\Controller\DashboardController::index

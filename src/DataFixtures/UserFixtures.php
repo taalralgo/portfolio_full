@@ -20,10 +20,10 @@ class UserFixtures extends Fixture
     {
         $user = new User();
         $user->setName("Daouda S. THERA")
-            ->setEmail("taalralgo@gmail.com")
+            ->setEmail("admin@acan.email")
             ->setAbout("Je suis developpeur full stack avec plus de 2 ans d'experiences")
             ->setType("Admin")
-            ->setPassword($this->hasher->hashPassword($user, '123456'))
+            ->setPassword($this->hasher->hashPassword($user, 'aCANGroup'))
             ->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($user);

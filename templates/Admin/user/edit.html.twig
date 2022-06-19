@@ -1,0 +1,17 @@
+{% extends 'backend.html.twig' %}
+{% block breadcrump %}
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Users /</span> Modifier
+    </h4>
+{% endblock %}
+{% block body %}
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Modifier l'administrateur</h5>
+            <small class="text-muted float-end">Les cahmps marqués avec <span class="text-danger">*</span> sont obligatoires</small>
+        </div>
+        <div class="card-body">
+            {{ include('Admin/user/_form.html.twig', {'btn_name': 'Modifier', 'btn_color': 'btn-warning'}) }}
+        </div>
+    </div>
+{% endblock %}

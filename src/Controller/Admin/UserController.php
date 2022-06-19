@@ -34,23 +34,20 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $manager): Response
     {
         $form = $this->createForm(UserType::class, $user)->handleRequest($request);
-        if ($request->isMethod('POST'))
+        if ($form->isSubmitted() && $form->isValid())
         {
-            if ($form->isSubmitted() && $form->isValid())
+            /** @var User $editUser */
+            $editUser = $form->getData();
+            $user->setName($editUser->getName());
+            $user->setEmail($editUser->getEmail());
+            $user->setAbout($editUser->getAbout());
+            if (!empty($editUser->getNewPassword()))
             {
-                /** @var User $editUser */
-                $editUser = $form->getData();
-                $user->setName($editUser->getName());
-                $user->setEmail($editUser->getEmail());
-                $user->setAbout($editUser->getAbout());
-                if (!empty($editUser->getNewPassword()))
-                {
-                    $user->setPassword($passwordHasher->hashPassword($editUser->getNewPassword()));
-                }
-                $manager->persist($user);
-                $manager->flush();
-                return $this->redirectToRoute('admin_user_index');
+                $user->setPassword($passwordHasher->hashPassword($editUser->getNewPassword()));
             }
+            $manager->persist($user);
+            $manager->flush();
+            return $this->redirectToRoute('admin_user_index');
         }
         return $this->render('Admin/user/edit.html.twig', [
             'form' => $form->createView()

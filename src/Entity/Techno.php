@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use App\Repository\TechnoRepository;
@@ -25,9 +27,8 @@ class Techno
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez selectionner une image")
      */
-    private string $image;
+    private ?string $image;
 
     /**
      * @ORM\Column(type="string", length=255)

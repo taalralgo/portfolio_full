@@ -44,4 +44,13 @@ class HandleUploadImage implements HandleUploadImageInterface
         $uploadedFile->move($this->uploadPath, $newFilename);
         return $newFilename;
     }
+
+    /**
+     * @param string $absoluteFilePath
+     * @return bool
+     */
+    public function removeUploadFile(string $absoluteFilePath): bool
+    {
+        return unlink($absoluteFilePath);
+    }
 }

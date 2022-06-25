@@ -37,13 +37,15 @@ class TechnoController extends AbstractController
     public function create(Request $request, EntityManagerInterface $manager, HandleUploadImageInterface $uploader, string $uploadDir): Response
     {
         $techno = new Techno();
-        $form = $this->createForm(TechnoType::class, $techno)->handleRequest($request);
+        $form = $this->createForm(TechnoType::class, $techno, [
+            "validation_groups" => ["Default", "Create"]
+        ])->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
             try
             {
                 /** @var UploadedFile $image */
-                $uploadFile = $form->get('image')->getData();
+                $uploadFile = $form->get('file')->getData();
                 $techno->setImage($uploader->uploadImage($uploadFile, $uploadDir));
                 $manager->persist($techno);
                 $manager->flush();
@@ -58,5 +60,41 @@ class TechnoController extends AbstractController
         return $this->render('Admin/techno/create.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/techno/edit/{id}", name="admin_techno_edit")
+     */
+    public function edit(Request $request, Techno $techno, EntityManagerInterface $manager, HandleUploadImageInterface $uploader, string $uploadDir)
+    {
+        $form = $this->createForm(TechnoType::class, $techno)->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $file = $form->get('file')->getData();
+            if ($file !== null)
+            {
+                $oldImage = $techno->getImage();
+                $techno->setImage($uploader->uploadImage($file, $uploadDir));
+                $uploader->removeUploadFile($uploadDir . '/' . $oldImage);
+            }
+            $manager->flush();
+            return $this->redirectToRoute('admin_techno_index');
+        }
+        return $this->render('Admin/techno/edit.html.twig', [
+            'techno' => $techno,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/techno/delete/{id}", name="admin_techno_delete")
+     */
+    public function remove(Request $request, Techno $techno, EntityManagerInterface $manager, HandleUploadImageInterface $uploader, string $uploadDir): Response
+    {
+        $image = $techno->getImage();
+        $manager->remove($techno);
+        $manager->flush();
+        $uploader->removeUploadFile($uploadDir . '/' . $image);
+        return $this->redirectToRoute('admin_techno_index');
     }
 }

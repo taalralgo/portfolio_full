@@ -18,6 +18,18 @@
             rel="stylesheet"
     />
 
+    <style>
+        div.index-card-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        img.table-logo {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{ asset('backend/template/assets/vendor/fonts/boxicons.css') }}"/>
 
@@ -127,5 +139,11 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
+
+<script>
+    $(document).ready( function () {
+        $('table.datatable-list').DataTable();
+    } );
+</script>
 </body>
 </html>

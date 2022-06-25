@@ -139,5 +139,11 @@
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
+
+<script>
+    $(document).ready( function () {
+        $('table.datatable-list').DataTable();
+    } );
+</script>
 </body>
 </html>

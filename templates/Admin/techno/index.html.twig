@@ -6,6 +6,14 @@
     </h4>
 {% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
+{% endblock %}
+
 {% block body %}
     <div class="card">
         <div class="card-header index-card-header">
@@ -14,7 +22,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table">
+                <table class="table datatable-list">
                     <thead>
                     <tr>
                         <th>Image</th>

@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">{{ form_label(form.file) }}<span
+                class="text-danger">*</span></label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.file) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.file) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">{{ form_label(form.name) }}<span
+                class="text-danger">*</span></label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.name) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.name) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-confirm-password">{{ form_label(form.description) }}</label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+</div>
+<div class="row justify-content-end">
+    <div class="col-sm-10">
+        <button type="submit" class="btn {{ btn_color }}">{{ btn_name }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,71 @@
+{% extends 'backend.html.twig' %}
+
+{% block breadcrump %}
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Educations /</span> liste
+    </h4>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" defer></script>
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header index-card-header">
+            <h5>Parcours scolaire</h5>
+            <a class="btn btn-primary" href="{{ path('admin_education_create') }}">Ajouter un parcours scolaire</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table datatable-list">
+                    <thead>
+                    <tr>
+                        <th>Etablissement</th>
+                        <th>Diplome</th>
+                        <th >Pays</th>
+                        <th >Ville</th>
+                        <th >Date debut</th>
+                        <th >Date fin</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    {% for education in educations %}
+                        <tr>
+                            <td>{{ education.school }}</td>
+                            <td>{{ education.diplome  }}</td>
+                            <td>{{ education.pays  }}</td>
+                            <td>{{ education.ville  }}</td>
+                            <td>{{ education.startAt | date('d-m-Y')  }}</td>
+                            <td>{{ education.finishAt | date('d-m-Y')  }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                            data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ path('admin_education_edit', {'id': education.id}) }}">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            Modifier
+                                        </a>
+                                        <a class="dropdown-item" href="{{ path('admin_education_delete', {'id': education.id}) }}">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            Supprimer
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

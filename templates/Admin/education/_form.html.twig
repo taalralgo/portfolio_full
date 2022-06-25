@@ -1,0 +1,63 @@
+{{ form_start(form) }}
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">{{ form_label(form.school) }}<span
+                class="text-danger">*</span></label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.school) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.school) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">{{ form_label(form.diplome) }}<span
+                class="text-danger">*</span></label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.diplome) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.diplome) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-confirm-password">{{ form_label(form.startAt) }}</label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.startAt) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.startAt) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-confirm-password">{{ form_label(form.finishAt) }}</label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.finishAt) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.finishAt) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-confirm-password">{{ form_label(form.pays) }}</label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.pays) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.pays) }}</div>
+</div>
+<div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="basic-icon-default-confirm-password">{{ form_label(form.ville) }}</label>
+    <div class="col-sm-10">
+        <div class="input-group input-group-merge">
+            {{ form_widget(form.ville) }}
+        </div>
+    </div>
+    <div class="form-text text-center">{{ form_errors(form.ville) }}</div>
+</div>
+<div class="row justify-content-end">
+    <div class="col-sm-10">
+        <button type="submit" class="btn {{ btn_color }}">{{ btn_name }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

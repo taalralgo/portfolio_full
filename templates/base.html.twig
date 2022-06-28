@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Daouda S. THERA">
+    <meta name="keywords" content="portfolio, Daouda, THERA, Développeur, fullstack, mali, PHP, Symfony, Laravel, web">
+    <meta name="description"
+          content="Daouda S. THERA, Développeur Full-Stack PHP (Laravel-Symfony) - JavaScript (Vue JS, React JS) depuis 2019. Ingénieur en informatique,
+          je suis a aCAN Group depuis plus de 2 ans. Au contact de grandes entreprises (Eutelsat, DMedia, WalfTV ...)
+          ou du ministère (SIMEN, RTS), j'ai acquis la capacité de concevoir (Modelisation UML et Merise) et de développer des applications
+          en respectant les bonnes pratiques (clean code, principes S.O.L.I.D). Vous voulez en savoir plus, merci de me contacter !">
+    <meta>
+    <title>{% block title %}Daouda S. THERA!{% endblock %}</title>
+    <link rel="icon" href="{{ asset('frontend/image/logo.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<div class="wrapper">
+    {% include '/Front/include/_nav.html.twig' %}
+    {% block body %}{% endblock %}
+    {% include '/Front//include/_footer.html.twig' %}
+</div>
+</body>
 </html>

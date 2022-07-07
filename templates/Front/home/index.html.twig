@@ -3,5 +3,14 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-Home page
+    <div class="home">
+        <section class="presentation">
+            <div class="description">
+                {{ user.about }}
+            </div>
+            <div class="profile">
+                <img src="" alt="profile">
+            </div>
+        </section>
+    </div>
 {% endblock %}

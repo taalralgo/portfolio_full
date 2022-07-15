@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
+{% block styles %}
+{% endblock %}
 
 {% block body %}
     <div class="home">
@@ -23,112 +25,144 @@
                 {% endfor %}
             </div>
         </section>
-        <section class="project">
+        <section class="splide project" role="group" aria-label="Splide Basic HTML Example">
             <h3>Project</h3>
             <p>Things I’ve built so far</p>
-            <div class="project__container slick">
-                {% for project in projects %}
-                    <div class="project-item">
-                        <div class="project-item__head">
-                            <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
-                        </div>
-                        <div class="project-item__container">
-                            <div class="project-item__body">
-                                <h3>Project Tile goes here</h3>
-                                <p>This is sample project description random things are here in description This is sample
-                                    project lorem ipsum generator for dummy content</p>
-                                <div class="stack">
-                                    <span>Tech stack : </span> HTML , JavaScript, SASS, React
-                                </div>
+            <div class="splide__track">
+                <div class="splide__list project__container">
+                    {% for project in projects %}
+                        <div class="splide__slide project-item">
+                            <div class="project-item__head">
+                                <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
                             </div>
-                            <div class="project-item__footer">
-                                <div class="live-preview">
-                                    <img src="{{ asset('frontend/image/link.png') }}" alt="link">
-                                    <a href="#">Live Preview</a>
+                            <div class="project-item__container">
+                                <div class="project-item__body">
+                                    <h3>Project Tile goes here</h3>
+                                    <p>This is sample project description random things are here in description This is
+                                        sample
+                                        project lorem ipsum generator for dummy content</p>
+                                    <div class="stack">
+                                        <span>Tech stack : </span> HTML , JavaScript, SASS, React
+                                    </div>
                                 </div>
-                                <div class="view-github">
-                                    <img src="{{ asset('frontend/image/github.png') }}" alt="link">
-                                    <a href="#">View Code</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-item__head">
-                            <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
-                        </div>
-                        <div class="project-item__container">
-                            <div class="project-item__body">
-                                <h3>Project Tile goes here</h3>
-                                <p>This is sample project description random things are here in description This is sample
-                                    project lorem ipsum generator for dummy content</p>
-                                <div class="stack">
-                                    <span>Tech stack : </span> HTML , JavaScript, SASS, React
-                                </div>
-                            </div>
-                            <div class="project-item__footer">
-                                <div class="live-preview">
-                                    <img src="{{ asset('frontend/image/link.png') }}" alt="link">
-                                    <a href="#">Live Preview</a>
-                                </div>
-                                <div class="view-github">
-                                    <img src="{{ asset('frontend/image/github.png') }}" alt="link">
-                                    <a href="#">View Code</a>
+                                <div class="project-item__footer">
+                                    <div class="live-preview">
+                                        <img src="{{ asset('frontend/image/link.png') }}" alt="link">
+                                        <a href="#">Live Preview</a>
+                                    </div>
+                                    <div class="view-github">
+                                        <img src="{{ asset('frontend/image/github.png') }}" alt="link">
+                                        <a href="#">View Code</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-item__head">
-                            <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
-                        </div>
-                        <div class="project-item__container">
-                            <div class="project-item__body">
-                                <h3>Project Tile goes here</h3>
-                                <p>This is sample project description random things are here in description This is sample
-                                    project lorem ipsum generator for dummy content</p>
-                                <div class="stack">
-                                    <span>Tech stack : </span> HTML , JavaScript, SASS, React
-                                </div>
+                        <div class="splide__slide project-item">
+                            <div class="project-item__head">
+                                <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
                             </div>
-                            <div class="project-item__footer">
-                                <div class="live-preview">
-                                    <img src="{{ asset('frontend/image/link.png') }}" alt="link">
-                                    <a href="#">Live Preview</a>
+                            <div class="project-item__container">
+                                <div class="project-item__body">
+                                    <h3>Project Tile goes here</h3>
+                                    <p>This is sample project description random things are here in description This is
+                                        sample
+                                        project lorem ipsum generator for dummy content</p>
+                                    <div class="stack">
+                                        <span>Tech stack : </span> HTML , JavaScript, SASS, React
+                                    </div>
                                 </div>
-                                <div class="view-github">
-                                    <img src="{{ asset('frontend/image/github.png') }}" alt="link">
-                                    <a href="#">View Code</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <div class="project-item__head">
-                            <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
-                        </div>
-                        <div class="project-item__container">
-                            <div class="project-item__body">
-                                <h3>Project Tile goes here</h3>
-                                <p>This is sample project description random things are here in description This is sample
-                                    project lorem ipsum generator for dummy content</p>
-                                <div class="stack">
-                                    <span>Tech stack : </span> HTML , JavaScript, SASS, React
-                                </div>
-                            </div>
-                            <div class="project-item__footer">
-                                <div class="live-preview">
-                                    <img src="{{ asset('frontend/image/link.png') }}" alt="link">
-                                    <a href="#">Live Preview</a>
-                                </div>
-                                <div class="view-github">
-                                    <img src="{{ asset('frontend/image/github.png') }}" alt="link">
-                                    <a href="#">View Code</a>
+                                <div class="project-item__footer">
+                                    <div class="live-preview">
+                                        <img src="{{ asset('frontend/image/link.png') }}" alt="link">
+                                        <a href="#">Live Preview</a>
+                                    </div>
+                                    <div class="view-github">
+                                        <img src="{{ asset('frontend/image/github.png') }}" alt="link">
+                                        <a href="#">View Code</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                        <div class="splide__slide project-item">
+                            <div class="project-item__head">
+                                <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
+                            </div>
+                            <div class="project-item__container">
+                                <div class="project-item__body">
+                                    <h3>Project Tile goes here</h3>
+                                    <p>This is sample project description random things are here in description This is
+                                        sample
+                                        project lorem ipsum generator for dummy content</p>
+                                    <div class="stack">
+                                        <span>Tech stack : </span> HTML , JavaScript, SASS, React
+                                    </div>
+                                </div>
+                                <div class="project-item__footer">
+                                    <div class="live-preview">
+                                        <img src="{{ asset('frontend/image/link.png') }}" alt="link">
+                                        <a href="#">Live Preview</a>
+                                    </div>
+                                    <div class="view-github">
+                                        <img src="{{ asset('frontend/image/github.png') }}" alt="link">
+                                        <a href="#">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="splide__slide project-item">
+                            <div class="project-item__head">
+                                <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
+                            </div>
+                            <div class="project-item__container">
+                                <div class="project-item__body">
+                                    <h3>Project Tile goes here</h3>
+                                    <p>This is sample project description random things are here in description This is
+                                        sample
+                                        project lorem ipsum generator for dummy content</p>
+                                    <div class="stack">
+                                        <span>Tech stack : </span> HTML , JavaScript, SASS, React
+                                    </div>
+                                </div>
+                                <div class="project-item__footer">
+                                    <div class="live-preview">
+                                        <img src="{{ asset('frontend/image/link.png') }}" alt="link">
+                                        <a href="#">Live Preview</a>
+                                    </div>
+                                    <div class="view-github">
+                                        <img src="{{ asset('frontend/image/github.png') }}" alt="link">
+                                        <a href="#">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="splide__slide project-item">
+                            <div class="project-item__head">
+                                <img src="{{ asset('uploads') }}/{{ project.image }}" alt="{{ project.name }}">
+                            </div>
+                            <div class="project-item__container">
+                                <div class="project-item__body">
+                                    <h3>Project Tile goes here</h3>
+                                    <p>This is sample project description random things are here in description This is
+                                        sample
+                                        project lorem ipsum generator for dummy content</p>
+                                    <div class="stack">
+                                        <span>Tech stack : </span> HTML , JavaScript, SASS, React
+                                    </div>
+                                </div>
+                                <div class="project-item__footer">
+                                    <div class="live-preview">
+                                        <img src="{{ asset('frontend/image/link.png') }}" alt="link">
+                                        <a href="#">Live Preview</a>
+                                    </div>
+                                    <div class="view-github">
+                                        <img src="{{ asset('frontend/image/github.png') }}" alt="link">
+                                        <a href="#">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </section>
     </div>

@@ -13,9 +13,11 @@ var splide = new Splide( '.splide', {
     gap: 20,
     lazyLoad: true,
     autoplay: true,
-    interval: 5000,
-    rewindSpeed: 2000,
-    speed: 5000
+    interval: 3000,
+    rewindSpeed: 1000,
+    speed: 900,
+    arrows: false,
+    pagination: false,
 } );
 
 splide.mount();

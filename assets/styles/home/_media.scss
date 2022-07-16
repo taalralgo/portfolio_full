@@ -26,9 +26,11 @@
       flex-direction: column-reverse;
       align-items: center;
       justify-content: center;
+
       .description {
         width: var(--width);
       }
+
       .profile {
         text-align: center;
       }
@@ -36,14 +38,40 @@
 
     .stack {
       .techno-item img {
-        width: 70px!important;
-        height: 70px!important;
+        width: 70px !important;
+        height: 70px !important;
       }
     }
   }
 }
 
-@media screen and (max-width: 731px) {
+@media screen and (max-width: 735px) {
   .home {
+    .presentation {
+      .profile img {
+        width: 6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .home {
+    .presentation {
+      .profile img {
+        width: 6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home {
+    .presentation {
+      .description {
+        font-size: 14px;
+        font-weight: inherit;
+      }
+    }
   }
 }

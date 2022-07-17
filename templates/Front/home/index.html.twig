@@ -14,6 +14,30 @@
                 <img src="{{ asset('uploads') }}/{{ user.image }}" alt="profile">
             </div>
         </section>
+        <section class="education">
+            <div class="education__head">
+                <h3>Education</h3>
+                <p>Mon parcours scolaire</p>
+            </div>
+            {% for education in educations %}
+                <div class="education__body">
+                    <div class="education-name-ville">
+                        <h4>{{  education.diplome }}</h4>
+                        <p class="generic-right-top">{{ education.pays }}/{{ education.ville }}</p>
+                    </div>
+                    <div class="education-school-year">
+                        <div class="school">
+                            <img src="{{ asset('frontend/image/vector1.png') }}" alt="vector1">
+                            <p>{{ education.school }}</p>
+                        </div>
+                        <div class="year">
+                            <img src="{{ asset('frontend/image/vector2.png') }}" alt="vector2">
+                            <p>{{ education.startAt | date('M-Y') }} - {{ education.finishAt | date('M-Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
         <section class="stack">
             <h3>My Tech Stack</h3>
             <p>Technologies I’ve been working with recently</p>

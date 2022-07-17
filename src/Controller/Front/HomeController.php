@@ -2,6 +2,7 @@
 
 namespace App\Controller\Front;
 
+use App\Entity\Education;
 use App\Entity\Project;
 use App\Entity\Techno;
 use App\Entity\User;
@@ -22,10 +23,12 @@ class HomeController extends AbstractController
         $user = $manager->getRepository(User::class)->find(self::USER_ID);
         $technos = $manager->getRepository(Techno::class)->findAll();
         $projects = $manager->getRepository(Project::class)->findAll();
+        $educations = $manager->getRepository(Education::class)->findAll();
         return $this->render('Front/home/index.html.twig', [
             'user' => $user,
             'technos' => $technos,
             'projects' => $projects,
+            'educations' => $educations,
         ]);
     }
 }

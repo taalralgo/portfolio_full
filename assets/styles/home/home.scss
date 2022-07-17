@@ -59,8 +59,18 @@
         flex-wrap: nowrap;
         align-items: center;
         margin-top: 20px;
-
         .school {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .ville {
           display: flex;
           gap: 10px;
           align-items: center;
@@ -75,6 +85,70 @@
           display: flex;
           gap: 10px;
           align-items: center;
+        }
+      }
+    }
+  }
+
+  .experience {
+    &__head {
+      text-align: center;
+      margin-top: var(--margin-between-section);
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-education-hr);
+      margin: 20px 0;
+      padding-bottom: 20px;
+
+      .experience-name-ville {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .experience-school-year {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 20px;
+        .school {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .ville {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+          justify-content: center;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .year {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+          justify-content: end;
         }
       }
     }

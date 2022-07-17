@@ -28,7 +28,7 @@
       justify-content: center;
 
       .description {
-        width: var(--width);
+        width: 100%;
       }
 
       .profile {
@@ -73,5 +73,16 @@
         font-weight: inherit;
       }
     }
+  }
+}
+
+@media screen and (max-width: 413px) {
+  .generic-right-top {
+    font-size: 10px;
+    margin: auto 0;
+  }
+  .home {
+    width: 90%;
+    margin: auto;
   }
 }

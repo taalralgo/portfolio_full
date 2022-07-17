@@ -14,6 +14,59 @@
                 <img src="{{ asset('uploads') }}/{{ user.image }}" alt="profile">
             </div>
         </section>
+        <section class="education">
+            <div class="education__head">
+                <h3>Education</h3>
+                <p>Mon parcours scolaire</p>
+            </div>
+            {% for education in educations %}
+                <div class="education__body">
+                    <div class="education-name-ville">
+                        <h4>{{ education.diplome }}</h4>
+                        <p class="generic-right-top">{{ education.pays }}/{{ education.ville }}</p>
+                    </div>
+                    <div class="education-school-year">
+                        <div class="school">
+                            <img src="{{ asset('frontend/image/vector1.png') }}" alt="vector1">
+                            <p>{{ education.school }}</p>
+                        </div>
+                        <div class="year">
+                            <img src="{{ asset('frontend/image/vector2.png') }}" alt="vector2">
+                            <p>{{ education.startAt | date('M-Y') }} - {{ education.finishAt | date('M-Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+        {#- --------------------Experience section------------------- -#}
+        <section class="experience">
+            <div class="experience__head">
+                <h3>Experience professionnelle</h3>
+                <p>Voilà pourquoi je suis la personne qu'il vous faut</p>
+            </div>
+            {% for experience in experiences %}
+                <div class="experience__body">
+                    <div class="experience-name-ville">
+                        <h4>{{ experience.nameJob }}</h4>
+                        <p class="generic-right-top">{{ experience.typeContrat }}</p>
+                    </div>
+                    <div class="experience-school-year">
+                        <div class="school">
+                            <img src="{{ asset('frontend/image/vector1.png') }}" alt="vector1">
+                            <p>{{ experience.nameCompany }}</p>
+                        </div>
+                        <div class="ville">
+                            <img src="{{ asset('frontend/image/vector3.png') }}" alt="vector3">
+                            <p>{{ experience.pays }}/{{ experience.ville }}</p>
+                        </div>
+                        <div class="year">
+                            <img src="{{ asset('frontend/image/vector2.png') }}" alt="vector2">
+                            <p>{{ experience.dureeContrat }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
         <section class="stack">
             <h3>My Tech Stack</h3>
             <p>Technologies I’ve been working with recently</p>

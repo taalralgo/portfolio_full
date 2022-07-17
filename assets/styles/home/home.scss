@@ -1,4 +1,11 @@
 .home {
+  .generic-right-top {
+    background: #D7FFE0;
+    color: #018C0F;
+    padding: 9px;
+    border-radius: 20%;
+  }
+
   .presentation {
     display: flex;
     flex-direction: row;
@@ -12,9 +19,11 @@
       size: 58px;
       font-weight: bold;
     }
+
     .profile {
       width: 40%;
       text-align: right;
+
       img {
         border: 2px solid #E70FAA;
         border-radius: 100%;
@@ -22,9 +31,133 @@
       }
     }
   }
+
+  .education {
+    &__head {
+      text-align: center;
+      margin-top: var(--margin-between-section);
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-education-hr);
+      margin: 20px 0;
+      padding-bottom: 20px;
+
+      .education-name-ville {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .education-school-year {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 20px;
+        .school {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .ville {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .year {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .experience {
+    &__head {
+      text-align: center;
+      margin-top: var(--margin-between-section);
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-education-hr);
+      margin: 20px 0;
+      padding-bottom: 20px;
+
+      .experience-name-ville {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .experience-school-year {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 20px;
+        .school {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .ville {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+          justify-content: center;
+
+          img {
+            height: 12px;
+            width: 16px;
+          }
+        }
+
+        .year {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          width: 33%;
+          justify-content: end;
+        }
+      }
+    }
+  }
+
   .stack {
     margin-top: 100px;
     text-align: center;
+
     .technos {
       margin-top: 80px;
       display: grid;
@@ -32,6 +165,7 @@
 
       .techno-item {
         padding: 10px;
+
         img {
           width: 120px;
           height: 120px;
@@ -41,17 +175,21 @@
       }
     }
   }
+
   .project {
     text-align: center;
     margin-top: 100px;
+
     .project__container {
-      margin-top: 100px!important;
+      margin-top: 100px !important;
+
       .project-item {
         width: 375px;
         height: 580px;
         background: #FFFFFF;
         //box-shadow: 2px 2px 100px rgba(0, 0, 0, 0.2);
         border-radius: 20px;
+
         &__head {
           img {
             width: 375px;
@@ -59,27 +197,34 @@
             border-radius: 20px;
           }
         }
+
         &__container {
           padding: 30px;
         }
+
         &__body {
           text-align: justify;
+
           & h3 {
             text-align: center;
             margin-bottom: 15px;
           }
+
           .stack {
             margin: 15px 0;
             text-align: justify;
+
             span {
               font-weight: bold;
             }
           }
         }
+
         &__footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
+
           img {
             width: 20px;
           }

@@ -226,7 +226,19 @@
                 </div>
             </div>
             <div class="contact__body">
-                <form action="#" method="post">
+                <div class="server-response-info">
+                    {% for flash_success in app.flashes('contact_success') %}
+                        <div class="alert alert-success">
+                            {{ flash_success }}
+                        </div>
+                    {% endfor %}
+                    {% for flash_error in app.flashes('contact_error') %}
+                        <div class="alert alert-danger">
+                            {{ flash_error }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <form action="{{ path('front_send_message') }}" method="POST">
                     <div class="fullname">
                         <div class="firstname form-widget">
                             <label for="firstname">First name <span class="text-danger">*</span></label>

@@ -6,6 +6,23 @@
     border-radius: 20%;
   }
 
+  .server-response-info {
+    text-align: center;
+    margin-top: 50px;
+    .alert-success {
+      background: #30c34e;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .alert-danger {
+      background: red;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  }
+
   .presentation {
     display: flex;
     flex-direction: row;

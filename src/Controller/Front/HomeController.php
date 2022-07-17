@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller\Front;
 
 use App\Entity\Education;
@@ -9,6 +11,7 @@ use App\Entity\Techno;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,6 +19,7 @@ class HomeController extends AbstractController
 {
 
     const USER_ID = 1;
+
     /**
      * @Route("/", name="front_home")
      */
@@ -34,4 +38,19 @@ class HomeController extends AbstractController
             'experiences' => $experiences,
         ]);
     }
+
+    /**
+     * @Route("/send-message", name="front_send_message")
+     */
+    public function sendMessage(Request $request): Response
+    {
+        if (!$request->isMethod('POST'))
+        {
+            $this->addFlash("contact_error", "La methode n'est pas bien definie.");
+            return $this->redirectToRoute("front_home");
+        }
+        $this->addFlash("contact_success", "Votre message a été envoyé avec succès.");
+        return $this->redirectToRoute("front_home");
+    }
+
 }

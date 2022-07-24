@@ -15,9 +15,6 @@
     <meta>
     <title>{% block title %}Daouda S. THERA!{% endblock %}</title>
     <link rel="icon" href="{{ asset('frontend/image/logo.png') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -32,10 +29,63 @@
     {% endblock %}
 </head>
 <body>
-<div class="wrapper">
-    {% include '/Front/include/_nav.html.twig' %}
-    {% block body %}{% endblock %}
-    {% include '/Front/include/_footer.html.twig' %}
+<div class="container">
+    <div class="landing-page">
+        <header>
+            <div class="logo">
+                <a href="{{ path('front_home') }}">
+                    <h1 class="logo-text">Thera</h1>
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="#">Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Skill</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <span class="contact-number">(+221) 78 164 69 93</span>
+                <img src="{{ asset('frontend/image/phone.png') }}" alt="phone">
+            </div>
+        </header>
+        <div class="landing">
+            <img class="geographie" src="{{ asset('frontend/image/geographie.png') }}" alt="geographie">
+            <img class="my-photo" src="{{ asset('frontend/image/profile-2.png') }}" alt="myphoto">
+            <div class="info">
+                <h1 class="hello">Hey There, I'm THERA</h1>
+                <a class="email" href="mailto:ddthera@gmail.com">ddthera@gmail.com</a>
+                <div class="experience-number">
+                    <h1>3</h1>
+                    <p>
+                        Years experience<br>
+                        Développeur web PHP Full-Stack
+                    </p>
+                </div>
+            </div>
+            <div class="about">
+                I design beautifully simple
+                things, and i love what i do
+            </div>
+        </div>
+        <div class="study-process">
+            <h1>Plus d'informations 👇</h1>
+        </div>
+    </div>
 </div>
+
+<script src="{{ asset('frontend/js/jquery.js') }}"></script>
 </body>
 </html>

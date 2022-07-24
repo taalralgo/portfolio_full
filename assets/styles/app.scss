@@ -1,118 +1,145 @@
+@import "./module/_fonts.scss";
+@import "./module/_variable.scss";
+
 *, *::before, *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
   list-style: none;
+}
+
+a {
   text-decoration: none;
 }
 
-a, a:hover, a:active {
-  color: var(--color-primary);
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-
 body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--color-primary);
-  line-height: 1.6;
+  font-family: "Caros", serif;
+  background: $color-light-yellow;
   font-size: 16px;
-  background: var(--color-background);
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.landing-page {
   height: 100vh;
-  width: 80vw;
-  margin: 20px auto;
-}
 
-.text-danger {
-  color: red;
-}
+  header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-@media screen and (max-width: 1000px) {
-  .wrapper {
-    header.header {
-      justify-content: center;
-      gap: 50px;
-      margin-bottom: 70px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    footer.footer {
-      hr {
-        margin: 35px 0;
-      }
-
-      .bottom {
-        display: flex;
-        flex-direction: column;
-
-        nav {
-          ul {
-            margin-bottom: 20px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 731px) {
-  .wrapper {
-    footer.footer {
-      .top {
-        flex-direction: column-reverse;
-
-        img:first-child {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 735px) {
-  .wrapper {
-    header {
-      nav {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 516px) {
-  footer.footer {
-    .top {
-      text-align: center;
-      .right {
-        .contact {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          span:first-child {
-            margin-bottom: 15px;
-          }
-        }
-      }
-      .social-media {
-        display: none;
-      }
+    .logo {
+      width: 20%;
+      font-family: dawning, serif;
     }
 
-    .bottom {
-      text-align: center;
+    nav {
+      width: 50%;
+
       ul {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        li {
-          margin: 10px;
-        }
+      }
+    }
+
+    .contact {
+      width: 20%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 40px;
+        height: 40px;
       }
     }
   }
+
+  .landing {
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10% 0;
+    position: relative;
+
+    img.geographie {
+      position: absolute;
+      left: 40%;
+      bottom: -2%;
+    }
+
+    img.my-photo {
+      position: absolute;
+      width: 618px;
+      height: 570px;
+      left: calc(50% - 618px / 2 + 130px);
+      top: calc(50% - 570px / 2 + 59px);
+
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+
+      .hello {
+        font-size: 82px;
+        font-weight: bold;
+        line-height: 90px;
+      }
+
+      a {
+        color: $color-red;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .experience-number {
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        h1:nth-child(1) {
+          font-weight: 600;
+          font-size: 65px;
+          line-height: 80px;
+        }
+      }
+    }
+
+    .about {
+      width: 257px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 35px;
+    }
+  }
+
+  .study-process {
+    height: 20vh;
+    background: $color-white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 68px;
+  }
 }
 
-@import "./module/_variable.scss";
-@import "./module/nav.scss";
-@import "./module/footer.scss";
-@import "./home/home.scss";

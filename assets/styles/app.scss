@@ -143,7 +143,7 @@ body {
 }
 
 .work-experience {
-  height: 855px; // a supprimer apres
+  //height: 855px; // a supprimer apres
   h1:nth-child(1) {
     padding-top: 64px;
     text-align: center;
@@ -205,7 +205,40 @@ body {
         content: "";
         border: none;
       }
+    }
 
+    .experience-item:nth-child(2) {
+      .job h2::before {
+        content: "";
+        border: 1px dashed $color-red;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: -35px;
+        top: 5px;
+        background: $color-red;
+        padding: 4px;
+        background-clip: content-box;
+        box-shadow: 3px 3px 0px #e8a290;
+      }
+    }
+
+    .experience-item:nth-child(3) {
+      .job h2::before {
+        content: "";
+        border: 1px dashed $color-yellow;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: -35px;
+        top: 5px;
+        background: $color-yellow;
+        padding: 4px;
+        background-clip: content-box;
+        box-shadow: 3px 3px 0px #efdda9;
+      }
     }
   }
 }

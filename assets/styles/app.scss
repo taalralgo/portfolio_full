@@ -155,34 +155,57 @@ body {
   .experiences {
     margin-top: 64px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 25px;
 
-    .companies {
-      display: flex;
-      flex-direction: column;
-      //gap: 130px;
-      .company-item {
-        display: flex;
-        flex-direction: column;
-        line-height: 34px;
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .company {
+        line-height: 1.8;
       }
-    }
 
-    .jobs {
-      max-width: 672px;
-      //flex-direction: column;
-      //justify-content: space-between;
-      //gap: 130px;
-      .job-item {
-        text-align: justify;
-        h2 {
-          margin-bottom: 16px;
+      .job {
+        position: relative;
+
+        h2::before {
+          content: "";
+          border: 1px dashed $color-green;
+          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          left: -35px;
+          top: 5px;
+          background: $color-green;
+          padding: 4px;
+          background-clip: content-box;
+          box-shadow: 3px 3px 0px #87D7D1FF;
         }
+
         p {
-          line-height: 44px;
+          font-style: italic;
+          text-align: justify;
+          line-height: 1.8;
+
+          &::before {
+            content: "";
+            border: 1px dashed #0D2F3F;
+            position: absolute;
+            height: 135px;
+            left: -22px;
+          }
         }
+
       }
+
+      &:last-child .job p::before {
+        content: "";
+        border: none;
+      }
+
     }
   }
 }

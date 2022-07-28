@@ -27,6 +27,11 @@
 
     {% block scripts %}
     {% endblock %}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -122,7 +127,74 @@
             </div>
         </div>
     </div>
+    <div class="latest-work">
+        <div class="head">
+            <div class="left">
+                <h1>My Latest Work</h1>
+                <p>Perfect solution for digital experiece</p>
+            </div>
+            <div class="right">
+                <a href="#">Explore More Work</a>
+            </div>
+        </div>
+        <div class="body swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 </div>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        autoplay: true,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
+</script>
 
 <script src="{{ asset('frontend/js/jquery.js') }}"></script>
 </body>

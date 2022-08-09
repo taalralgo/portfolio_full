@@ -15,9 +15,6 @@
     <meta>
     <title>{% block title %}Daouda S. THERA!{% endblock %}</title>
     <link rel="icon" href="{{ asset('frontend/image/logo.png') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@700&display=swap" rel="stylesheet">
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -30,12 +27,249 @@
 
     {% block scripts %}
     {% endblock %}
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
-<div class="wrapper">
-    {% include '/Front/include/_nav.html.twig' %}
-    {% block body %}{% endblock %}
-    {% include '/Front/include/_footer.html.twig' %}
+<div class="container">
+    <div class="landing-page">
+        <header>
+            <div class="logo">
+                <a href="{{ path('front_home') }}">
+                    <h1 class="logo-text">Thera</h1>
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="#">Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Skill</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <span class="contact-number">(+221) 78 164 69 93</span>
+                <img src="{{ asset('frontend/image/phone.png') }}" alt="phone">
+            </div>
+        </header>
+        <div class="landing">
+            <img class="geographie" src="{{ asset('frontend/image/geographie.png') }}" alt="geographie">
+            <img class="my-photo" src="{{ asset('frontend/image/profile-2.png') }}" alt="myphoto">
+            <div class="info">
+                <h1 class="hello">Hey There, I'm THERA</h1>
+                <a class="email" href="mailto:ddthera@gmail.com">ddthera@gmail.com</a>
+                <div class="experience-number">
+                    <h1>3</h1>
+                    <p>
+                        Years experience<br>
+                        Développeur web PHP Full-Stack
+                    </p>
+                </div>
+            </div>
+            <div class="about">
+                I design beautifully simple
+                things, and i love what i do
+            </div>
+        </div>
+        <div class="study-process">
+            <h1>Plus d'informations 👇</h1>
+        </div>
+    </div>
+    <div class="work-experience">
+        <h1>My Work Experience</h1>
+        <div class="experiences">
+            <div class="experience-item">
+                <div class="company">
+                    <h2>FPT Telecom</h2>
+                    <dfn>May 2015 - Jan 2021</dfn>
+                </div>
+                <div class="job">
+                    <h2>Graphic Designer</h2>
+                    <p>Working with the social media marketing team to design highly creative visual content. Design
+                        landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="company">
+                    <h2>FPT Telecom</h2>
+                    <dfn>May 2015 - Jan 2021</dfn>
+                </div>
+                <div class="job">
+                    <h2>Graphic Designer</h2>
+                    <p>Working with the social media marketing team to design highly creative visual content. Design
+                        landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="company">
+                    <h2>FPT Telecom</h2>
+                    <dfn>May 2015 - Jan 2021</dfn>
+                </div>
+                <div class="job">
+                    <h2>Graphic Designer</h2>
+                    <p>Working with the social media marketing team to design highly creative visual content. Design
+                        landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="latest-work">
+        <div class="head">
+            <div class="left">
+                <h1>My Latest Work</h1>
+                <p>Perfect solution for digital experiece</p>
+            </div>
+            <div class="right">
+                <a href="#">Explore More Work</a>
+            </div>
+        </div>
+        <div class="body swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
+                            <h2>Caba Info</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="skills">
+        <div class="head">
+            <h1>Skills</h1>
+        </div>
+        <div class="skill-container">
+            <div class="carousel">
+                <div class="carousel__cards">
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="https://picsum.photos/200" alt="#">
+                    </div>
+                </div>
+                <div class="carousel__control">
+                    <img class="carousel__btn carousel__btn--back" src="{{ asset('frontend/image/left-arrow.png') }}" alt="Left arrow bouton">
+                    <img class="carousel__btn carousel__btn--next" src="{{ asset('frontend/image/right-arrow.png') }}" alt="Right arrow bouton">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="start">
+            <div class="left">
+                <h2 class="lets-work">Let's make something amazing toghether.</h2>
+                <h2 class="take-contact">Start by <span>saying hi</span></h2>
+            </div>
+            <div class="right">
+                <h2>Contact info</h2>
+                <p>(+221) 78 164 69 93</p>
+                <nav>
+                    <li><a href="#">Study</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Experience</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Skill</a></li>
+                </nav>
+            </div>
+        </div>
+        <div class="end">
+            <div class="left">
+                <span class="logo">Thera</span> | {{ "now" |  date('Y') }}.All rights Reserved
+            </div>
+            <div class="right">
+                Design by <span>Thanh Nhan</span>
+            </div>
+        </div>
+    </footer>
 </div>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        autoplay: true,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
+</script>
+
+<script src="{{ asset('frontend/js/jquery.js') }}"></script>
 </body>
 </html>

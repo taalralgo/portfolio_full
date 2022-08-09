@@ -393,17 +393,13 @@ body {
       width: 80px;
       height: 80px;
     }
-
-    .carousel__btn:hover {
-      //transform: scale(1.04);
-      //background: #000000;
-    }
   }
 }
 
 footer.footer {
   background: $color-white;
   padding-top: 64px;
+  height: 100%;
 
   .start {
     max-width: $max-width;
@@ -436,7 +432,7 @@ footer.footer {
   }
   .end {
     max-width: $max-width;
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;

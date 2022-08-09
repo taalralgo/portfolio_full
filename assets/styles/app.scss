@@ -22,15 +22,12 @@ body {
   font-size: 16px;
 }
 
-.container {
-  max-width: $max-width;
-  margin: 0 auto;
-}
-
 .landing-page {
   height: 100vh;
 
   header {
+    max-width: $max-width;
+    margin: 0 auto;
     height: 10vh;
     display: flex;
     align-items: center;
@@ -71,6 +68,8 @@ body {
   }
 
   .landing {
+    max-width: $max-width;
+    margin: 0 auto;
     height: 70%;
     display: flex;
     justify-content: space-between;
@@ -145,6 +144,8 @@ body {
 }
 
 .work-experience {
+  max-width: $max-width;
+  margin: 0 auto;
   h1:nth-child(1) {
     padding-top: 64px;
     text-align: center;
@@ -248,6 +249,8 @@ body {
   background: $color-white;
   margin-top: 64px;
   .head {
+    max-width: $max-width;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -265,7 +268,8 @@ body {
   }
 
   .body {
-    margin-top: 64px;
+    max-width: $max-width;
+    margin: 64px auto 0 auto;
     .card-project {
       position: relative;
       width: 380px;
@@ -402,6 +406,8 @@ footer.footer {
   padding-top: 64px;
 
   .start {
+    max-width: $max-width;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -429,8 +435,8 @@ footer.footer {
     }
   }
   .end {
-    margin: 40px 0;
-    //border-top: 0.1px solid $color-black;
+    max-width: $max-width;
+    margin: 40px auto;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;

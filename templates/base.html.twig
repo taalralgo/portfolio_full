@@ -155,38 +155,16 @@
     </div>
     <div class="body swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="card-project">
-                    <a href="#">
-                        <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
-                        <h2>Caba Info</h2>
-                    </a>
+            {% for project in projects %}
+                <div class="swiper-slide">
+                    <div class="card-project">
+                        <a href="#">
+                            <img src="{{ asset('uploads') }}/{{ project.image }}" alt="image du projet">
+                            <h2>{{ project.name }}</h2>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card-project">
-                    <a href="#">
-                        <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
-                        <h2>Caba Info</h2>
-                    </a>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card-project">
-                    <a href="#">
-                        <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
-                        <h2>Caba Info</h2>
-                    </a>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card-project">
-                    <a href="#">
-                        <img src="{{ asset('uploads/telechargement-7-62b727cf81534.png') }}" alt="image du projet">
-                        <h2>Caba Info</h2>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -198,38 +176,12 @@
     <div class="skill-container">
         <div class="carousel">
             <div class="carousel__cards">
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
-                <div class="carousel__card">
-                    <img class="carousel__img"
-                         src="https://picsum.photos/200" alt="#">
-                </div>
+                {% for techno in technos %}
+                    <div class="carousel__card">
+                        <img class="carousel__img"
+                             src="{{ asset('uploads') }}/{{ techno.image }}" alt="{{ techno.name }}">
+                    </div>
+                {% endfor %}
             </div>
             <div class="carousel__control">
                 <img class="carousel__btn carousel__btn--back" src="{{ asset('frontend/image/left-arrow.png') }}"

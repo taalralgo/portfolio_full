@@ -74,56 +74,71 @@
             <h1 class="hello animate__animated animate__backInLeft">Hey There, I'm THERA</h1>
             <a class="email animate__animated animate__backInLeft" href="mailto:ddthera@gmail.com">ddthera@gmail.com</a>
             <div class="experience-number animate__animated animate__backInLeft">
-                <h1>3</h1>
+                <h1>+3</h1>
+                {#                <p> #}
+                {#                    Years experience<br> #}
+                {#                    Développeur web PHP Full-Stack #}
+                {#                </p> #}
                 <p>
-                    Years experience<br>
-                    Développeur web PHP Full-Stack
+                    ans d'experience dans le<br>
+                    développement web
                 </p>
             </div>
         </div>
-        <div class="about animate__animated animate__fadeInRight">
-            I design beautifully simple
-            things, and i love what i do
-        </div>
+        <div class="about animate__animated animate__fadeInRight">{{ user.about }}</div>
     </div>
     <div class="study-process">
         <h1>Plus d'informations 👇</h1>
     </div>
 </div>
 <div class="work-experience">
-    <h1 data-aos="fade-down">My Work Experience</h1>
+    <h1 data-aos="fade-down">Mes Experiences</h1>
     <div class="experiences">
         <div class="experience-item">
             <div class="company" data-aos="fade-left">
-                <h2>FPT Telecom</h2>
-                <dfn>May 2015 - Jan 2021</dfn>
+                <h2>{{ experiences[0].nameCompany }}</h2>
+                <dfn>{{ experiences[0].dureeContrat }}</dfn>
             </div>
             <div class="job" data-aos="fade-right">
-                <h2>Graphic Designer</h2>
-                <p>Working with the social media marketing team to design highly creative visual content. Design
-                    landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                <h2>{{ experiences[0].nameJob }}</h2>
+                <p>Réalisation du site web Abed (Association de Bienfaisance pour l’Éducation et le Développement)</p>
             </div>
         </div>
         <div class="experience-item">
             <div class="company" data-aos="fade-right">
-                <h2>FPT Telecom</h2>
-                <dfn>May 2015 - Jan 2021</dfn>
+                <h2>{{ experiences[1].nameCompany }}</h2>
+                <dfn>{{ experiences[1].dureeContrat }}</dfn>
             </div>
             <div class="job" data-aos="fade-left">
-                <h2>Graphic Designer</h2>
-                <p>Working with the social media marketing team to design highly creative visual content. Design
-                    landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                <h2>{{ experiences[1].nameJob }}</h2>
+                <p>
+                    - Conception et réalisation d’une plateforme de streaming (RafinaTV).<br/>
+                    - Conception et réalisation d’une plateforme de gestion de billetterie pour le PTB S.A. (une
+                    société de transport de voyageurs par voie ferroviaire).
+                </p>
             </div>
         </div>
         <div class="experience-item">
             <div class="company" data-aos="fade-left">
-                <h2>FPT Telecom</h2>
-                <dfn>May 2015 - Jan 2021</dfn>
+                <h2>{{ experiences[2].nameCompany }}</h2>
+                <dfn>{{ experiences[2].dureeContrat }}</dfn>
             </div>
             <div class="job" data-aos="fade-right">
-                <h2>Graphic Designer</h2>
-                <p>Working with the social media marketing team to design highly creative visual content. Design
-                    landing pages, small web pages, banners, and videos for digital marketing projects.</p>
+                <h2>{{ experiences[2].nameJob }}</h2>
+                <p>
+                    • Réalisation du site web de la RTS <br/>
+                    • Conception et réalisation d’une plateforme de réservation
+                    de billet (Dakar Dem Dikk) <br/>
+                    • Conception et réalisation de EDUSTAT une plateforme de
+                    traitement et d’analyse de données (Ministère de
+                    l’éducation du Sénégal) <br/>
+                    • Conception et réalisation d’une plateforme de gestion de
+                    contenu ACANVOD (RTS, DMEDIA, WalfTV ...) <br/>
+                    • Conception et réalisation d’une plateforme de suivi budgétaire pour le Ministère de l’Eau et de
+                    l’Assainissement du Sénégal (MEA) <br/>
+                    • Le Caba de l’info : Est une application qui vous apporte
+                    l’info de votre région et les futurs évènements <br/>
+                </p>
             </div>
         </div>
     </div>
@@ -131,8 +146,8 @@
 <div class="latest-work">
     <div class="head" data-aos="zoom-in-down">
         <div class="left">
-            <h1>My Latest Work</h1>
-            <p>Perfect solution for digital experiece</p>
+            <h1>Mes derniers projets</h1>
+            <p>Des solutions parfaites avec une meilleure expérience utilisateur</p>
         </div>
         <div class="right">
             <a href="#">Explore More Work</a>
@@ -178,7 +193,7 @@
 </div>
 <div class="skills">
     <div class="head">
-        <h1 data-aos="zoom-in-down">Skills</h1>
+        <h1 data-aos="zoom-in-down">Mes compétences</h1>
     </div>
     <div class="skill-container">
         <div class="carousel">
@@ -230,8 +245,8 @@
         <div class="left" data-aos="fade-right"
              data-aos-offset="300"
              data-aos-easing="ease-in-sine">
-            <h2 class="lets-work">Let's make something amazing toghether.</h2>
-            <h2 class="take-contact">Start by <span>saying hi</span></h2>
+            <h2 class="lets-work">Faisons quelque chose d'incroyable ensemble...</h2>
+            <h2 class="take-contact">Commencez par me<span> contacter 👉</span></h2>
         </div>
         <div class="right" data-aos="fade-left"
              data-aos-offset="300"
@@ -239,11 +254,10 @@
             <h2>Contact info</h2>
             <p>(+221) 77 619 01 98</p>
             <nav>
-                <li><a href="#">Study</a></li>
-                <li><a href="#">Work</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Skill</a></li>
+                <li><a href="#">Experiences</a></li>
+                <li><a href="#">Projets</a></li>
+                <li><a href="#">Compétences</a></li>
+                <li><a href="#">Contact</a></li>
             </nav>
         </div>
     </div>

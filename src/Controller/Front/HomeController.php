@@ -29,7 +29,7 @@ class HomeController extends AbstractController
         $technos = $manager->getRepository(Techno::class)->findAll();
         $projects = $manager->getRepository(Project::class)->findAll();
         $educations = $manager->getRepository(Education::class)->findAll();
-        $experiences = $manager->getRepository(Experience::class)->findAll();
+        $experiences = $manager->getRepository(Experience::class)->findBy([], ['name_company' => 'ASC']);
         return $this->render('Front/home/index.html.twig', [
             'user' => $user,
             'technos' => $technos,
